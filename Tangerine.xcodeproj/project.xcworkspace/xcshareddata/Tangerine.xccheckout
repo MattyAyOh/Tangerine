@@ -7,18 +7,18 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>62035D83-C064-4EA7-8DA6-8AF56CF0DF4D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Tangerine</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C6C44FFAF3BA6749504AD82052C673EF9F34DB25</key>
 		<string>https://github.com/MattyAyOh/Tangerine.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Tangerine/Tangerine.xcodeproj/project.xcworkspace</string>
+	<string>Tangerine.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C6C44FFAF3BA6749504AD82052C673EF9F34DB25</key>
-		<string>../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/MattyAyOh/Tangerine.git</string>
