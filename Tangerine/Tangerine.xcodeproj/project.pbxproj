@@ -76,6 +76,7 @@
 		3A2DEF181B66F35F00DF4234 /* Tangerine */ = {
 			isa = PBXGroup;
 			children = (
+				3A2DEF3A1B66F5E700DF4234 /* Resources */,
 				3A2DEF1B1B66F35F00DF4234 /* AppDelegate.h */,
 				3A2DEF1C1B66F35F00DF4234 /* AppDelegate.m */,
 				3A2DEF201B66F35F00DF4234 /* Images.xcassets */,
@@ -109,6 +110,13 @@
 				3A2DEF2E1B66F35F00DF4234 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A2DEF3A1B66F5E700DF4234 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

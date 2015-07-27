@@ -11,12 +11,28 @@
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
+
+@property NSStatusItem *statusBarItem;
+@property NSMenu *statusMenu;
+
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-   // Insert code here to initialize your application
+   self.statusMenu = [NSMenu new];
+   [self.statusMenu addItemWithTitle:@"An Item" action:nil keyEquivalent:@""];
+   [self.statusMenu addItemWithTitle:@"Another Item" action:nil keyEquivalent:@""];
+   
+   NSStatusBar *bar = [NSStatusBar systemStatusBar];
+   
+   self.statusBarItem = [NSStatusItem new];
+   self.statusBarItem = [bar statusItemWithLength:NSVariableStatusItemLength];
+   NSImage* icon = [NSImage imageNamed:@"tangerine"];
+   [self.statusBarItem setImage:icon];
+   [self.statusBarItem setHighlightMode:YES];
+   [self.statusBarItem setMenu:self.statusMenu];
+   [self.statusBarItem setEnabled:YES];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
