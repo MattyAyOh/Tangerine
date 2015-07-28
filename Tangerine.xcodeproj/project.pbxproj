@@ -12,6 +12,8 @@
 		3A2DEF211B66F35F00DF4234 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2DEF201B66F35F00DF4234 /* Images.xcassets */; };
 		3A2DEF241B66F35F00DF4234 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2DEF221B66F35F00DF4234 /* MainMenu.xib */; };
 		3A2DEF301B66F35F00DF4234 /* TangerineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DEF2F1B66F35F00DF4234 /* TangerineTests.m */; };
+		3A2DEF3E1B66F8E100DF4234 /* QuizPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DEF3C1B66F8E100DF4234 /* QuizPanel.m */; };
+		3A2DEF3F1B66F8E100DF4234 /* QuizPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2DEF3D1B66F8E100DF4234 /* QuizPanel.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,9 @@
 		3A2DEF291B66F35F00DF4234 /* TangerineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TangerineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2DEF2E1B66F35F00DF4234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A2DEF2F1B66F35F00DF4234 /* TangerineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TangerineTests.m; sourceTree = "<group>"; };
+		3A2DEF3B1B66F8E100DF4234 /* QuizPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizPanel.h; sourceTree = "<group>"; };
+		3A2DEF3C1B66F8E100DF4234 /* QuizPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizPanel.m; sourceTree = "<group>"; };
+		3A2DEF3D1B66F8E100DF4234 /* QuizPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuizPanel.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +81,14 @@
 		3A2DEF181B66F35F00DF4234 /* Tangerine */ = {
 			isa = PBXGroup;
 			children = (
-				3A2DEF3A1B66F5E700DF4234 /* Resources */,
 				3A2DEF1B1B66F35F00DF4234 /* AppDelegate.h */,
 				3A2DEF1C1B66F35F00DF4234 /* AppDelegate.m */,
-				3A2DEF201B66F35F00DF4234 /* Images.xcassets */,
+				3A2DEF3B1B66F8E100DF4234 /* QuizPanel.h */,
+				3A2DEF3C1B66F8E100DF4234 /* QuizPanel.m */,
+				3A2DEF3D1B66F8E100DF4234 /* QuizPanel.xib */,
 				3A2DEF221B66F35F00DF4234 /* MainMenu.xib */,
+				3A2DEF201B66F35F00DF4234 /* Images.xcassets */,
+				3A2DEF3A1B66F5E700DF4234 /* Resources */,
 				3A2DEF191B66F35F00DF4234 /* Supporting Files */,
 			);
 			path = Tangerine;
@@ -200,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2DEF211B66F35F00DF4234 /* Images.xcassets in Resources */,
+				3A2DEF3F1B66F8E100DF4234 /* QuizPanel.xib in Resources */,
 				3A2DEF241B66F35F00DF4234 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +229,7 @@
 			files = (
 				3A2DEF1F1B66F35F00DF4234 /* main.m in Sources */,
 				3A2DEF1D1B66F35F00DF4234 /* AppDelegate.m in Sources */,
+				3A2DEF3E1B66F8E100DF4234 /* QuizPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +419,7 @@
 				3A2DEF351B66F35F00DF4234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A2DEF361B66F35F00DF4234 /* Build configuration list for PBXNativeTarget "TangerineTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +428,7 @@
 				3A2DEF381B66F35F00DF4234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

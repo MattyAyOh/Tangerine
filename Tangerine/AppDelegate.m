@@ -8,22 +8,19 @@
 
 #import "AppDelegate.h"
 
+void *kContextQuizPanelOpening = &kContextQuizPanelOpening;
+
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
-
-@property NSStatusItem *statusBarItem;
-@property NSMenu *statusMenu;
+@property (readwrite) NSStatusItem *statusBarItem;
+@property NSRect statusItemRect;
 
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-   self.statusMenu = [NSMenu new];
-   [self.statusMenu addItemWithTitle:@"An Item" action:nil keyEquivalent:@""];
-   [self.statusMenu addItemWithTitle:@"Another Item" action:nil keyEquivalent:@""];
-   
    NSStatusBar *bar = [NSStatusBar systemStatusBar];
    
    self.statusBarItem = [NSStatusItem new];
@@ -31,12 +28,19 @@
    NSImage* icon = [NSImage imageNamed:@"tangerine"];
    [self.statusBarItem setImage:icon];
    [self.statusBarItem setHighlightMode:YES];
-   [self.statusBarItem setMenu:self.statusMenu];
+   [self.statusBarItem setAction:@selector(togglePanel)];
    [self.statusBarItem setEnabled:YES];
 }
 
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-   // Insert code here to tear down your application
+- (void)togglePanel
+{
+   self.statusItemRect = [self.window convertRectFromScreen:[[[NSApp currentEvent] window] frame]];
+   NSLog(@"%@", NSStringFromRect(self.statusItemRect));
+}
+
+-(NSRect)getStatusItemRect
+{
+   return self.statusItemRect;
 }
 
 @end
