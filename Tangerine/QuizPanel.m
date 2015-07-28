@@ -22,6 +22,7 @@
 @interface QuizPanel ()
 
 @property BOOL isActive;
+@property int rotation;
 
 @property IBOutlet NSTextField *quizNumber;
 @property IBOutlet NSTextField *englishPhrase;
@@ -36,7 +37,7 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
-    
+   self.rotation = 0;
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
@@ -51,11 +52,19 @@
    {
       NSString *randomIntAsString = [NSString stringWithFormat:@"%d",arc4random_uniform(100)];
       [self.quizNumber setStringValue:randomIntAsString];
-      NSLog(@"%@", randomIntAsString);
+      if(self.rotation == 1)
+      {
+         [self.englishPhrase setStringValue:@"Invest"];
+         [self.answerOne setStringValue:@"Jackie Chan"];
+         [self.answerTwo setStringValue:@"Gan Shen Ma"];
+         [self.answerThree setStringValue:@"Tee Pee Goo"];
+         [self.answerFour setStringValue:@"Toe Zi"];
+      }
       [self openPanel];
    }
    else
    {
+      self.rotation = 1;
       [self closePanel];
    }
 }
