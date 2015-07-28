@@ -15,6 +15,7 @@ void *kContextQuizPanelOpening = &kContextQuizPanelOpening;
 @property (weak) IBOutlet NSWindow *window;
 @property (readwrite) NSStatusItem *statusBarItem;
 @property NSRect statusItemRect;
+@property QuizPanel *quizPanel;
 
 @end
 
@@ -30,12 +31,16 @@ void *kContextQuizPanelOpening = &kContextQuizPanelOpening;
    [self.statusBarItem setHighlightMode:YES];
    [self.statusBarItem setAction:@selector(togglePanel)];
    [self.statusBarItem setEnabled:YES];
+   
+   self.quizPanel = [[QuizPanel alloc] initWithWindowNibName:@"QuizPanel"];
+   [self.quizPanel setDelegate:self];
 }
 
 - (void)togglePanel
 {
-   self.statusItemRect = [self.window convertRectFromScreen:[[[NSApp currentEvent] window] frame]];
+   self.statusItemRect = [[[NSApp currentEvent] window] frame];
    NSLog(@"%@", NSStringFromRect(self.statusItemRect));
+   [self.quizPanel setIsActive:YES];
 }
 
 -(NSRect)getStatusItemRect

@@ -20,8 +20,6 @@
 
 @interface QuizPanel ()
 
-@property id<QuizPanelDelegate> delegate;
-
 @end
 
 @implementation QuizPanel
