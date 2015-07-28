@@ -12,15 +12,23 @@
 #define OPEN_DURATION .15
 #define CLOSE_DURATION .1
 
-#define POPUP_HEIGHT 122
-#define PANEL_WIDTH 280
+#define POPUP_HEIGHT 296
+#define PANEL_WIDTH 303
 #define MENU_ANIMATION_DURATION .1
 
 #import "QuizPanel.h"
+#include <stdlib.h>
 
 @interface QuizPanel ()
 
 @property BOOL isActive;
+
+@property IBOutlet NSTextField *quizNumber;
+@property IBOutlet NSTextField *englishPhrase;
+@property IBOutlet NSTextField *answerOne;
+@property IBOutlet NSTextField *answerTwo;
+@property IBOutlet NSTextField *answerThree;
+@property IBOutlet NSTextField *answerFour;
 
 @end
 
@@ -32,11 +40,18 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
+- (IBAction)submitPressed:(id)sender {
+   [self toggleActive];
+}
+
 -(void)toggleActive
 {
    self.isActive = !self.isActive;
    if(self.isActive)
    {
+      NSString *randomIntAsString = [NSString stringWithFormat:@"%d",arc4random_uniform(100)];
+      [self.quizNumber setStringValue:randomIntAsString];
+      NSLog(@"%@", randomIntAsString);
       [self openPanel];
    }
    else
@@ -62,6 +77,7 @@
    [panel setAlphaValue:0];
    [panel setFrame:statusRect display:YES];
    [panel makeKeyAndOrderFront:nil];
+   [panel orderFront:nil];
    
    NSTimeInterval openDuration = OPEN_DURATION;
    
