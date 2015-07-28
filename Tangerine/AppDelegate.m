@@ -40,7 +40,7 @@ void *kContextQuizPanelOpening = &kContextQuizPanelOpening;
 {
    self.statusItemRect = [[[NSApp currentEvent] window] frame];
    NSLog(@"%@", NSStringFromRect(self.statusItemRect));
-   [self.quizPanel setIsActive:YES];
+   [self.quizPanel toggleActive];
 }
 
 -(NSRect)getStatusItemRect

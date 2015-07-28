@@ -17,7 +17,8 @@
 
 @interface QuizPanel : NSWindowController
 
-@property (nonatomic) BOOL isActive;
 @property id<QuizPanelDelegate> delegate;
+
+- (void)toggleActive;
 
 @end

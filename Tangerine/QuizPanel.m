@@ -20,6 +20,8 @@
 
 @interface QuizPanel ()
 
+@property BOOL isActive;
+
 @end
 
 @implementation QuizPanel
@@ -30,10 +32,10 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
-- (void)setIsActive:(BOOL)isActive
+-(void)toggleActive
 {
-   _isActive = isActive;
-   if(_isActive)
+   self.isActive = !self.isActive;
+   if(self.isActive)
    {
       [self openPanel];
    }
