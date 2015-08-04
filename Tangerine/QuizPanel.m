@@ -12,7 +12,7 @@
 #define OPEN_DURATION .15
 #define CLOSE_DURATION .1
 
-#define POPUP_HEIGHT 296
+#define POPUP_HEIGHT 203
 #define PANEL_WIDTH 303
 #define MENU_ANIMATION_DURATION .1
 
@@ -91,7 +91,7 @@
    NSTimeInterval openDuration = OPEN_DURATION;
    
    NSEvent *currentEvent = [NSApp currentEvent];
-   if ([currentEvent type] == NSLeftMouseDown)
+   if ([currentEvent type] == NSLeftMouseUp)
    {
       NSUInteger clearFlags = ([currentEvent modifierFlags] & NSDeviceIndependentModifierFlagsMask);
       BOOL shiftPressed = (clearFlags == NSShiftKeyMask);
