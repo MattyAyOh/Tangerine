@@ -15,10 +15,14 @@
 
 @end
 
+@class Quiz;
+
 @interface QuizPanel : NSWindowController
 
 @property id<QuizPanelDelegate> delegate;
+@property (nonatomic) Quiz *quiz;
 
-- (void)toggleActive;
+- (void)togglePanel;
+- (void)openPanel;
 
 @end

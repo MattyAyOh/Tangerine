@@ -14,6 +14,8 @@
 		3A2DEF301B66F35F00DF4234 /* TangerineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DEF2F1B66F35F00DF4234 /* TangerineTests.m */; };
 		3A2DEF3E1B66F8E100DF4234 /* QuizPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DEF3C1B66F8E100DF4234 /* QuizPanel.m */; };
 		3A2DEF3F1B66F8E100DF4234 /* QuizPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2DEF3D1B66F8E100DF4234 /* QuizPanel.xib */; };
+		3A7A91A81B75BE0000356378 /* QuizBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7A91A71B75BE0000356378 /* QuizBuilder.m */; };
+		3A7A91AB1B75BE2700356378 /* Quiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7A91AA1B75BE2700356378 /* Quiz.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		3A2DEF3B1B66F8E100DF4234 /* QuizPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizPanel.h; sourceTree = "<group>"; };
 		3A2DEF3C1B66F8E100DF4234 /* QuizPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizPanel.m; sourceTree = "<group>"; };
 		3A2DEF3D1B66F8E100DF4234 /* QuizPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuizPanel.xib; sourceTree = "<group>"; };
+		3A7A91A61B75BE0000356378 /* QuizBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizBuilder.h; sourceTree = "<group>"; };
+		3A7A91A71B75BE0000356378 /* QuizBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizBuilder.m; sourceTree = "<group>"; };
+		3A7A91A91B75BE2700356378 /* Quiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quiz.h; sourceTree = "<group>"; };
+		3A7A91AA1B75BE2700356378 /* Quiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quiz.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +91,11 @@
 				3A2DEF1C1B66F35F00DF4234 /* AppDelegate.m */,
 				3A2DEF3B1B66F8E100DF4234 /* QuizPanel.h */,
 				3A2DEF3C1B66F8E100DF4234 /* QuizPanel.m */,
+				3A7A91A61B75BE0000356378 /* QuizBuilder.h */,
+				3A7A91A71B75BE0000356378 /* QuizBuilder.m */,
 				3A2DEF3D1B66F8E100DF4234 /* QuizPanel.xib */,
+				3A7A91A91B75BE2700356378 /* Quiz.h */,
+				3A7A91AA1B75BE2700356378 /* Quiz.m */,
 				3A2DEF221B66F35F00DF4234 /* MainMenu.xib */,
 				3A2DEF201B66F35F00DF4234 /* Images.xcassets */,
 				3A2DEF3A1B66F5E700DF4234 /* Resources */,
@@ -227,6 +237,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A7A91AB1B75BE2700356378 /* Quiz.m in Sources */,
+				3A7A91A81B75BE0000356378 /* QuizBuilder.m in Sources */,
 				3A2DEF1F1B66F35F00DF4234 /* main.m in Sources */,
 				3A2DEF1D1B66F35F00DF4234 /* AppDelegate.m in Sources */,
 				3A2DEF3E1B66F8E100DF4234 /* QuizPanel.m in Sources */,

@@ -17,12 +17,12 @@
 #define MENU_ANIMATION_DURATION .1
 
 #import "QuizPanel.h"
+#import "Quiz.h"
 #include <stdlib.h>
 
 @interface QuizPanel ()
 
 @property BOOL isActive;
-@property int rotation;
 
 @property IBOutlet NSTextField *quizNumber;
 @property IBOutlet NSTextField *englishPhrase;
@@ -37,87 +37,90 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
-   self.rotation = 0;
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
 - (IBAction)submitPressed:(id)sender {
-   [self toggleActive];
+   [self togglePanel];
 }
 
--(void)toggleActive
+-(void)setQuiz:(Quiz *)quiz
 {
-   self.isActive = !self.isActive;
-   if(self.isActive)
+   [_quizNumber setStringValue:[NSString stringWithFormat:@"%d",[quiz questionID]]];
+   [_englishPhrase setStringValue:[quiz question]];
+   [_answerOne setStringValue:[quiz answerOne]];
+   [_answerTwo setStringValue:[quiz answerTwo]];
+   [_answerThree setStringValue:[quiz answerThree]];
+   [_answerFour setStringValue:[quiz answerFour]];
+   _quiz = quiz;
+}
+
+-(void)togglePanel
+{
+   if(![self.window isVisible])
    {
-      NSString *randomIntAsString = [NSString stringWithFormat:@"%d",arc4random_uniform(100)];
-      [self.quizNumber setStringValue:randomIntAsString];
-      if(self.rotation == 1)
-      {
-         [self.englishPhrase setStringValue:@"Invest"];
-         [self.answerOne setStringValue:@"Jackie Chan"];
-         [self.answerTwo setStringValue:@"Gan Shen Ma"];
-         [self.answerThree setStringValue:@"Tee Pee Goo"];
-         [self.answerFour setStringValue:@"Toe Zi"];
-      }
       [self openPanel];
    }
    else
    {
-      self.rotation = 1;
       [self closePanel];
    }
 }
 
 - (void)openPanel
 {
-   NSWindow *panel = [self window];
-   
-   NSRect screenRect = [[[NSScreen screens] objectAtIndex:0] frame];
-   NSRect statusRect = [self statusRectForWindow:panel];
-   
-   NSRect panelRect = [panel frame];
-   panelRect.size.width = PANEL_WIDTH;
-   panelRect.size.height = POPUP_HEIGHT;
-   panelRect.origin.x = roundf(NSMidX(statusRect) - NSWidth(panelRect) / 2);
-   panelRect.origin.y = NSMaxY(statusRect) - NSHeight(panelRect);
-   
-   [NSApp activateIgnoringOtherApps:NO];
-   [panel setAlphaValue:0];
-   [panel setFrame:statusRect display:YES];
-   [panel makeKeyAndOrderFront:nil];
-   [panel orderFront:nil];
-   
-   NSTimeInterval openDuration = OPEN_DURATION;
-   
-   NSEvent *currentEvent = [NSApp currentEvent];
-   if ([currentEvent type] == NSLeftMouseUp)
+   if(![self.window isVisible])
    {
-      NSUInteger clearFlags = ([currentEvent modifierFlags] & NSDeviceIndependentModifierFlagsMask);
-      BOOL shiftPressed = (clearFlags == NSShiftKeyMask);
-      BOOL shiftOptionPressed = (clearFlags == (NSShiftKeyMask | NSAlternateKeyMask));
-      if (shiftPressed || shiftOptionPressed)
+      self.isActive = YES;
+      NSWindow *panel = [self window];
+      
+      NSRect screenRect = [[[NSScreen screens] objectAtIndex:0] frame];
+      NSRect statusRect = [self statusRectForWindow:panel];
+      
+      NSRect panelRect = [panel frame];
+      panelRect.size.width = PANEL_WIDTH;
+      panelRect.size.height = POPUP_HEIGHT;
+      panelRect.origin.x = roundf(NSMidX(statusRect) - NSWidth(panelRect) / 2);
+      panelRect.origin.y = NSMaxY(statusRect) - NSHeight(panelRect);
+      
+      [NSApp activateIgnoringOtherApps:NO];
+      [panel setAlphaValue:0];
+      [panel setFrame:statusRect display:YES];
+      [panel makeKeyAndOrderFront:nil];
+      [panel orderFront:nil];
+      
+      NSTimeInterval openDuration = OPEN_DURATION;
+      
+      NSEvent *currentEvent = [NSApp currentEvent];
+      if ([currentEvent type] == NSLeftMouseUp)
       {
-         openDuration *= 10;
-         
-         if (shiftOptionPressed)
-            NSLog(@"Icon is at %@\n\tMenu is on screen %@\n\tWill be animated to %@",
-                  NSStringFromRect(statusRect), NSStringFromRect(screenRect), NSStringFromRect(panelRect));
+         NSUInteger clearFlags = ([currentEvent modifierFlags] & NSDeviceIndependentModifierFlagsMask);
+         BOOL shiftPressed = (clearFlags == NSShiftKeyMask);
+         BOOL shiftOptionPressed = (clearFlags == (NSShiftKeyMask | NSAlternateKeyMask));
+         if (shiftPressed || shiftOptionPressed)
+         {
+            openDuration *= 10;
+            
+            if (shiftOptionPressed)
+               NSLog(@"Icon is at %@\n\tMenu is on screen %@\n\tWill be animated to %@",
+                     NSStringFromRect(statusRect), NSStringFromRect(screenRect), NSStringFromRect(panelRect));
+         }
       }
+      
+      [NSAnimationContext beginGrouping];
+      [[NSAnimationContext currentContext] setDuration:openDuration];
+      [[panel animator] setFrame:panelRect display:YES];
+      [[panel animator] setAlphaValue:1];
+      [NSAnimationContext endGrouping];
+      [panel setLevel:NSMainMenuWindowLevel+1];
    }
-   
-   [NSAnimationContext beginGrouping];
-   [[NSAnimationContext currentContext] setDuration:openDuration];
-   [[panel animator] setFrame:panelRect display:YES];
-   [[panel animator] setAlphaValue:1];
-   [NSAnimationContext endGrouping];
-   [panel setLevel:NSMainMenuWindowLevel+1];
 }
 
 
 
 - (void)closePanel
 {
+   self.isActive = NO;
    [NSAnimationContext beginGrouping];
    [[NSAnimationContext currentContext] setDuration:CLOSE_DURATION];
    [[[self window] animator] setAlphaValue:0];
