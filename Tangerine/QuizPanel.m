@@ -111,6 +111,7 @@
    [[panel animator] setFrame:panelRect display:YES];
    [[panel animator] setAlphaValue:1];
    [NSAnimationContext endGrouping];
+   [panel setLevel:NSMainMenuWindowLevel+1];
 }
 
 
